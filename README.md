@@ -6,7 +6,7 @@ while the server side have the charge to get the orders from the interface
 and send it to the robot arm throw the serial port.
 
 The project also provide the sketch (aka the program) - located into the
-'arduino' folder - which must be uploaded into the Arduino board.
+'arduino-arm' folder - which must be uploaded into the Arduino board.
 
 ![An Arduino robot arm](/IMG_20180820_143853.resized.jpg)
 
@@ -29,7 +29,7 @@ var port = new SerialPort('xxxx');
 
 Finally, install the Arduino sketch :
  - open the Arduino IDE
- - open the file robot-arm.ino
+ - open the file arduino-arm.ino
  - select the correct board (Tools > Board > Arduino/Genuino Uno)
  - select the USB port of your board (Tools > Port > /dev/xxxx)
  - upload the program (Sketch > Upload)
