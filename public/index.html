@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Arm... strong :p</title>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+
+
+
+			<form class="col-sm-4" id="engines">
+				<h2>Moteurs</h2>
+
+				<div class="form-group">
+					<label for="base">Base</label>
+					<input class="form-control" type="range" min="0" max="180" name="base" value="90" />
+				</div>
+				<div class="form-group">
+					<label for="bottom">Moteur inférieur</label>
+					<input class="form-control" type="range" min="0" max="180" name="bottom" value="90" />
+				</div>
+				<div class="form-group">
+					<label for="middle">Moteur central</label>
+					<input class="form-control" type="range" min="0" max="180" name="middle" value="90" />
+				</div>
+				<div class="form-group">
+					<label for="top">Moteur haut</label>
+					<input class="form-control" type="range" min="0" max="180" name="top" value="90" />
+				</div>
+				<div class="form-group">
+					<label for="wrist">Poignet</label>
+					<input class="form-control" type="range" min="20" max="80" name="wrist" value="90" />
+				</div>
+				<div class="form-group">
+					<label for="hand">Main</label>
+					<input class="form-control" type="range" min="120" max="180" name="hand" value="90" />
+				</div>
+			</form>
+
+
+
+			<div class="col-sm-8" id="predefined">
+				<h2>Positions prédéfinies</h2>
+
+				<button data-order="Q028W004E012">serpent</button>
+				<button data-order="E110Q094W005D014">départ</button>
+				<button data-order="R000">repos</button>
+
+				<h2>Mouvements prédéfinis</h2>
+
+				<button data-order="C120">ouvrir</button>
+				<button data-order="C180">fermer</button>
+				<button data-order="A160">aller à gauche</button>
+				<button data-order="A060">aller à droite</button>
+				<button data-order="">monter</button>
+				<button data-order="">baisser</button>
+				<button data-order="D20">horizontal</button>
+				<button data-order="D80">vertical</button>
+
+				<h2>Paramètres</h2>
+				<div class="form-group">
+					<label for="latency">Vitesse</label>
+					<select name="latency">
+						<option value="40">lente</option>
+						<option value="20">moyenne</option>
+						<option value="10">rapide</option>
+					</select>
+				</div>
+				<button id="log">positions</button>		
+			</div>
+
+
+
+		</div>
+	</div>
+</body>
+</html>
