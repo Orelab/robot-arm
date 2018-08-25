@@ -76,9 +76,9 @@ To make the interface (NodeJS webserver) communicate with the robot arm
 (Arduino sketch), we had to think about a simple protocol. It simply
 consists in a string, which is formed as follow :
 
- - The first character is a capital letter which represent a servo or 
- an action. Here is the list, sorted by servos from bottom to top of 
- the arm, then the actions :
+- The first character is a capital letter which represent a servo or 
+an action. Here is the list, sorted by servos from bottom to top of 
+the arm, then the actions :
   - A : base servo (the one which turns the whole arm)
   - Q : bottom servo
   - W : middle servo
@@ -89,11 +89,11 @@ consists in a string, which is formed as follow :
   - L : latency (increase this value, decrease the arm speed)
   - R : Release (or Repos in french), stops the Servos
 
- - The next three characters are a number representing the servo position,
- generally from 0 to 180, or the latency in milliseconds (for the action 
- Latency of course). it is useless if the action is Release, but it remains 
- necessary to give something (usually 000) as the next characters should be 
- shifted and unreadable.
+- The next three characters are a number representing the servo position,
+generally from 0 to 180, or the latency in milliseconds (for the action 
+Latency of course). it is useless if the action is Release, but it remains 
+necessary to give something (usually 000) as the next characters should be 
+shifted and unreadable.
 
  #### Example
 
