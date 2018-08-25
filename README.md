@@ -15,20 +15,26 @@ You should have installed the Node Package Manager to install the required
 dependencies of the webserver, and the Arduino Software IDE (whatever the
 version).
 
-Then, go to the project, and install the dépendencies :
+Then, go to the project, and install the dependencies :
 ```
 npm install
+```
+
+You have to configure manually the serial port the webserver will control.
+Change it in the file index.js, and configure the port here :
+```
+var port = new SerialPort('xxxx');
 ```
 
 Finally, install the Arduino sketch :
  - open the Arduino IDE
  - open the file robot-arm.ino
  - select the correct board (Tools > Board > Arduino/Genuino Uno)
- - select the USB port of your board (Tools > Port > /dev/....)
+ - select the USB port of your board (Tools > Port > /dev/xxxx)
  - upload the program (Sketch > Upload)
 
 
- ## Let's play !
+### Let's play !
 
 Launch the webserver
 ```
@@ -41,3 +47,22 @@ Visit the following url :
 ```
 http://localhost:3000
 ```
+
+
+### Material list
+
+ - a robot arm !
+
+You can find the robot arm presented in the  previous photo in China for
+a low price, or you could print one. A good one seem to be available here :
+
+https://create.arduino.cc/projecthub/danny-van-den-heuvel/6dof-robotic-arm-50eab6
+
+ - 6 good servos
+The MG996R seems to be strong enough for your arm to be able to run, 
+considering the weight of the total parts, but a stronger one should be ideal
+in the case of the two ones which are at the base of the arm.
+
+ - An Arduino/Genuino Uno
+ - A 6V power supply (with at minimum 2A)
+ - of course, some wiring cables
