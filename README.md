@@ -8,6 +8,7 @@ and send it to the robot arm throw the serial port.
 The project also provide the sketch (aka the program) - located into the
 'arduino' folder - which must be uploaded into the Arduino board.
 
+![An Arduino robot arm](/IMG_20180820_143853.resized.jpg)
 
 ### Installation
 
