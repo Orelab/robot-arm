@@ -5,13 +5,13 @@ $(document).ready(function()
 
 
 	var orders = {
-		'base': 	'A',
-		'bottom': 	'Q',
-		'middle': 	'W',
-		'top': 		'E',
-		'wrist': 	'D',
-		'hand': 	'C',
-		'latency': 	'L'
+		'base'   :'A',
+		'bottom' :'Q',
+		'middle' :'W',
+		'top'    :'E',
+		'wrist'  :'D',
+		'hand'   :'C',
+		'latency':'L'
 	};
 
 

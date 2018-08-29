@@ -17,7 +17,7 @@
 
 
 			<form class="col-sm-4" id="engines">
-				<h2>Moteurs</h2>
+				<h3>Moteurs</h3>
 
 				<div class="form-group">
 					<label for="base">Base</label>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="form-group">
 					<label for="wrist">Poignet</label>
-					<input class="form-control" type="range" min="20" max="80" name="wrist" value="90" />
+					<input class="form-control" type="range" min="15" max="80" name="wrist" value="90" />
 				</div>
 				<div class="form-group">
 					<label for="hand">Main</label>
@@ -45,16 +45,27 @@
 				</div>
 			</form>
 
-
-
+			
 			<div class="col-sm-8" id="predefined">
-				<h2>Positions prédéfinies</h2>
+				<h3>Main en position horizontale</h3>
 
-				<button data-order="Q028W004E012">serpent</button>
-				<button data-order="E110Q094W005D014">départ</button>
-				<button data-order="R000">repos</button>
+				<button data-order="Q030W000E080">haut</button>
+				<button data-order="Q050W000E060">...</button>
+				<button data-order="Q070W000E040">...</button>
+				<button data-order="Q090W000E020">...</button>
+				<button data-order="Q110W000E000">bas</button>
 
-				<h2>Mouvements prédéfinis</h2>
+				<h3>Main en position verticale</h3>
+
+				<button data-order="Q065W020E180">près</button>
+				<button data-order="Q075W030E180">...</button>
+				<button data-order="Q085W040E180">...</button>
+				<button data-order="Q095W050E180">...</button>
+				<button data-order="Q105W060E180">...</button>
+				<button data-order="Q115W070E180">loin</button>
+
+
+				<h3>Mouvements prédéfinis</h3>
 
 				<button data-order="C120">ouvrir</button>
 				<button data-order="C180">fermer</button>
@@ -62,19 +73,20 @@
 				<button data-order="A060">aller à droite</button>
 				<button data-order="">monter</button>
 				<button data-order="">baisser</button>
-				<button data-order="D20">horizontal</button>
-				<button data-order="D80">vertical</button>
+				<button data-order="D015">horizontal</button>
+				<button data-order="D080">vertical</button>
 
-				<h2>Paramètres</h2>
+				<h3>Paramètres</h3>
 				<div class="form-group">
 					<label for="latency">Vitesse</label>
 					<select name="latency">
-						<option value="20">lente</option>
-						<option value="10">moyenne</option>
-						<option value="1">rapide</option>
+						<option value="2000">lente</option>
+						<option value="1500">moyenne</option>
+						<option value="1000">rapide</option>
 					</select>
 				</div>
 				<button id="log">positions</button>		
+				<button data-order="R000">repos</button>
 			</div>
 
 
