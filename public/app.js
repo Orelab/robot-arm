@@ -32,7 +32,7 @@ $(document).ready(function()
 	/*
 		Predefined positions
 	*/
-	$('#predefined button:not(#log)').on('click', function(){
+	$('.predefined button:not(#log)').on('click', function(){
 		order( $(this).data('order') );
 	});
 
@@ -50,6 +50,41 @@ $(document).ready(function()
 			console.log( data[i] );
 		}
 	});
+
+
+
+	/*
+		Automation
+	*/
+	$('#save_position').on('click', function(){
+		var data = $('#engines').serializeArray();
+		var order = '';
+
+		for(var i in data)
+		{
+			order += orders[data[i]['name']] + normalize(data[i]['value']);
+		}
+
+		$('#recorded_positions')
+			.append('<span data-order="'+order+'" class="oi oi-check"></span>')
+	});
+
+	$('#forget_position').on('click', function(){
+		$('#recorded_positions').empty();
+	});
+
+	$('#replay_position').on('click', function(){
+		$('#recorded_positions').children().each(function(index){
+			var o = $(this).data('order');
+			console.log('Trying to launch order ' + o);
+
+			setTimeout(function(){
+				console.log('Executing order ' + o);
+				order(o); 
+			}, 4000*index);
+		})
+	});
+
 
 
 
@@ -78,21 +113,21 @@ $(document).ready(function()
 
 	});
 
-
-
-	function normalize( val )
-	{
-		// n = number of ZERO to add
-		var n = 3 - val.toString().length;
-
-		// concat the right number of ZERO to val
-		return '0'.repeat(n) + val;
-	}
-
-
 	function order( o )
 	{
 		socket.emit('order', o);
 	}
 });
 
+
+
+
+
+function normalize( val )
+{
+	// n = number of ZERO to add
+	var n = 3 - val.toString().length;
+
+	// concat the right number of ZERO to val
+	return '0'.repeat(n) + val;
+}
