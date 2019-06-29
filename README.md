@@ -10,6 +10,9 @@ The project also provide the sketch (aka the program) - located into the
 
 ![An Arduino robot arm](/IMG_20180820_143853.resized.jpg)
 
+**Please, consider this project as a _work in progress_**
+
+
 ### Installation
 
 You should have installed the Node Package Manager to install the required
@@ -104,8 +107,25 @@ shifted and unreadable.
   - The top servo (E) moves to position 12
 
 
+ ### Development
+ 
+ #### Misc documentation
+
+ Some precious readings about object oriented and (fake) multitask approach on Arduino :
+- http://paulmurraycbr.github.io/ArduinoTheOOWay.html
+- https://learn.adafruit.com/multi-tasking-the-arduino-part-1/a-classy-solution
+- http://web.maths.unsw.edu.au/~lafaye/CCM/cpp/cppobjet.htm
+- https://arduino.stackexchange.com/questions/1216
+
+Bluetooth (HC-05 module + BT serial on Linux) :
+- https://www.instructables.com/id/How-to-Configure-HC-05-Bluetooth-Module-As-Master-/
+- https://avilpage.com/2017/10/bluetooth-communication-between-ubuntu-android.html
+
+
  #### Improvements to come
 
- I plan to add in the protocol the possibility to configure the notion of
- time. For now, the position are set one by one, and I'd like to be able
- to move each servo at the same time, so the arm should move smoother.
+ - Speed control (done)
+ - Make servos move smoother, at the same time (done)
+ - Replace the USB cable with a bluetooth serial, so the arm can be remotelly controlled
+ - Eventually replace the Arduino by a STM32 board, which seems to be faster
+
