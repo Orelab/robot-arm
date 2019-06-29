@@ -23,15 +23,15 @@
 
 				<div class="form-group">
 					<label for="base">Base</label>
-					<input class="form-control" type="range" min="0" max="180" name="base" value="90" />
+					<input class="form-control" type="range" min="40" max="180" name="base" value="107" />
 				</div>
 				<div class="form-group">
 					<label for="bottom">Moteur inférieur</label>
-					<input class="form-control" type="range" min="0" max="180" name="bottom" value="90" />
+					<input class="form-control" type="range" min="30" max="180" name="bottom" value="80" />
 				</div>
 				<div class="form-group">
 					<label for="middle">Moteur central</label>
-					<input class="form-control" type="range" min="0" max="180" name="middle" value="90" />
+					<input class="form-control" type="range" min="0" max="80" name="middle" value="40" />
 				</div>
 				<div class="form-group">
 					<label for="top">Moteur haut</label>
@@ -39,7 +39,7 @@
 				</div>
 				<div class="form-group">
 					<label for="wrist">Poignet</label>
-					<input class="form-control" type="range" min="15" max="80" name="wrist" value="90" />
+					<input class="form-control" type="range" min="15" max="80" name="wrist" value="0" />
 				</div>
 				<div class="form-group">
 					<label for="hand">Main</label>
@@ -62,29 +62,30 @@
 					<br/>
 
 					<span>Main en position horizontale</span>
-					<button data-order="Q030W000E080">haut</button>
-					<button data-order="Q050W000E060">...</button>
-					<button data-order="Q070W000E040">...</button>
-					<button data-order="Q090W000E020">...</button>
-					<button data-order="Q110W000E000">bas</button>
+					<button data-order="Q180W000E110">haut</button>
+					<button data-order="Q160W000E090">...</button>
+					<button data-order="Q140W000E070">...</button>
+					<button data-order="Q120W000E050">...</button>
+					<button data-order="Q100W000E030">...</button>
+					<button data-order="Q080W000E010">bas</button>
 					<br/>
 
 					<span>Main en position verticale</span>
-					<button data-order="Q065W020E180">près</button>
-					<button data-order="Q075W030E180">...</button>
-					<button data-order="Q085W040E180">...</button>
-					<button data-order="Q095W050E180">...</button>
-					<button data-order="Q105W060E180">...</button>
-					<button data-order="Q115W070E180">loin</button>
+					<button data-order="Q115W020E180">près</button>
+					<button data-order="Q105W030E180">...</button>
+					<button data-order="Q095W040E180">...</button>
+					<button data-order="Q085W050E180">...</button>
+					<button data-order="Q075W060E180">...</button>
+					<button data-order="Q065W070E180">loin</button>
 				</fieldset>
 
 				<fieldset class="form-group predefined">
 					<legend>Paramètres</legend>
 
 					<select name="latency">
-						<option value="2000">vitesse lente</option>
-						<option value="1500">vitesse moyenne</option>
-						<option value="1000">vitesse rapide</option>
+						<option value="20">vitesse lente</option>
+						<option value="15">vitesse moyenne</option>
+						<option value="10">vitesse rapide</option>
 					</select>
 					<button id="log">positions</button>		
 					<button data-order="R000">repos</button>
