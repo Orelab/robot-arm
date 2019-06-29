@@ -74,14 +74,12 @@ $(document).ready(function()
 	});
 
 	$('#replay_position').on('click', function(){
-		$('#recorded_positions').children().each(function(index){
+		$('#recorded_positions').children().each(function(i){
 			var o = $(this).data('order');
-			console.log('Trying to launch order ' + o);
 
 			setTimeout(function(){
-				console.log('Executing order ' + o);
 				order(o); 
-			}, 4000*index);
+			}, 2000*i);
 		})
 	});
 
