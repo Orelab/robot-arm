@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>The Arm... strong :p</title>
 
 	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"
+		integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
 
 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
@@ -12,97 +15,136 @@
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </head>
+
 <body>
-	<div class="container">
-		<div class="row">
 
-
-
-			<form class="col-sm-4" id="engines">
-				<h3>Moteurs</h3>
-
-				<div class="form-group">
-					<label for="base">Base</label>
-					<input class="form-control" type="range" min="40" max="180" name="base" value="107" />
-				</div>
-				<div class="form-group">
-					<label for="bottom">Moteur inférieur</label>
-					<input class="form-control" type="range" min="30" max="180" name="bottom" value="80" />
-				</div>
-				<div class="form-group">
-					<label for="middle">Moteur central</label>
-					<input class="form-control" type="range" min="0" max="80" name="middle" value="40" />
-				</div>
-				<div class="form-group">
-					<label for="top">Moteur haut</label>
-					<input class="form-control" type="range" min="0" max="180" name="top" value="90" />
-				</div>
-				<div class="form-group">
-					<label for="wrist">Poignet</label>
-					<input class="form-control" type="range" min="15" max="80" name="wrist" value="0" />
-				</div>
-				<div class="form-group">
-					<label for="hand">Main</label>
-					<input class="form-control" type="range" min="120" max="180" name="hand" value="90" />
-				</div>
-			</form>
-
-			
-			<div class="col-sm-8">
-
-				<fieldset class="form-group predefined">
-					<legend>Mouvements prédéfinis</legend>
-
-					<button data-order="C120">ouvrir</button>
-					<button data-order="C180">fermer</button>
-					<button data-order="A160">aller à gauche</button>
-					<button data-order="A060">aller à droite</button>
-					<button data-order="D015">horizontal</button>
-					<button data-order="D080">vertical</button>
-					<br/>
-
-					<span>Main en position horizontale</span>
-					<button data-order="Q180W000E110">haut</button>
-					<button data-order="Q160W000E090">...</button>
-					<button data-order="Q140W000E070">...</button>
-					<button data-order="Q120W000E050">...</button>
-					<button data-order="Q100W000E030">...</button>
-					<button data-order="Q080W000E010">bas</button>
-					<br/>
-
-					<span>Main en position verticale</span>
-					<button data-order="Q115W020E180">près</button>
-					<button data-order="Q105W030E180">...</button>
-					<button data-order="Q095W040E180">...</button>
-					<button data-order="Q085W050E180">...</button>
-					<button data-order="Q075W060E180">...</button>
-					<button data-order="Q065W070E180">loin</button>
-				</fieldset>
-
-				<fieldset class="form-group predefined">
-					<legend>Paramètres</legend>
-
-					<select name="latency">
-						<option value="20">vitesse lente</option>
-						<option value="15">vitesse moyenne</option>
-						<option value="10">vitesse rapide</option>
-					</select>
-					<button id="log">positions</button>		
-					<button data-order="R000">repos</button>
-				</fieldset>
-
-				<fieldset>
-					<legend>Apprentissage</legend>
-					<button id="save_position">enregistrer</button>
-					<button id="forget_position">oublier</button>
-					<button id="replay_position">rejouer</button>
-					<div id="recorded_positions"></div>
-				</fieldset>
-			</div>
-
-
-
+	<!--
+	
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="jumbotron-heading">That robot's arm</h1>
+			<p class="lead text-muted">Un bras contrôlé par une plateforme Arduino et un serveur Node.JS,
+				développé dans le cadre de la formation Développeur Web & Web Mobile Simplon.
+			</p>
+			<p>
+				<a href="#" class="btn btn-primary my-2">Site</a>
+				<a href="#engines" class="btn btn-secondary my-2">Moteurs</a>
+			</p>
 		</div>
-	</div>
+	</section>
+
+	-->
+
+	<main role="main">
+		<div class="album bg-light">
+
+			<div class="container">
+				<div class="row">
+
+					<form class="col-sm-4" id="engines">
+						<h3>Moteurs</h3>
+
+						<div class="form-group">
+							<label for="base">Base</label>
+							<input class="form-control" type="range" min="40" max="180" name="base" value="107" />
+						</div>
+						<div class="form-group">
+							<label for="bottom">Moteur inférieur</label>
+							<input class="form-control" type="range" min="30" max="180" name="bottom" value="80" />
+						</div>
+						<div class="form-group">
+							<label for="middle">Moteur central</label>
+							<input class="form-control" type="range" min="0" max="80" name="middle" value="40" />
+						</div>
+						<div class="form-group">
+							<label for="top">Moteur haut</label>
+							<input class="form-control" type="range" min="0" max="180" name="top" value="90" />
+						</div>
+						<div class="form-group">
+							<label for="wrist">Poignet</label>
+							<input class="form-control" type="range" min="15" max="80" name="wrist" value="0" />
+						</div>
+						<div class="form-group">
+							<label for="hand">Main</label>
+							<input class="form-control" type="range" min="120" max="180" name="hand" value="90" />
+						</div>
+					</form>
+
+
+					<div class="col-sm-8">
+
+						<fieldset class="form-group predefined">
+							<legend>Mouvements prédéfinis</legend>
+
+							<button data-order="C120">ouvrir</button>
+							<button data-order="C180">fermer</button>
+							<button data-order="A160">aller à gauche</button>
+							<button data-order="A060">aller à droite</button>
+							<button data-order="D015">horizontal</button>
+							<button data-order="D080">vertical</button>
+							<br />
+
+							<span>Main en position horizontale</span>
+							<button data-order="Q180W000E110">haut</button>
+							<button data-order="Q160W000E090">...</button>
+							<button data-order="Q140W000E070">...</button>
+							<button data-order="Q120W000E050">...</button>
+							<button data-order="Q100W000E030">...</button>
+							<button data-order="Q080W000E010">bas</button>
+							<br />
+
+							<span>Main en position verticale</span>
+							<button data-order="Q115W020E180">près</button>
+							<button data-order="Q105W030E180">...</button>
+							<button data-order="Q095W040E180">...</button>
+							<button data-order="Q085W050E180">...</button>
+							<button data-order="Q075W060E180">...</button>
+							<button data-order="Q065W070E180">loin</button>
+						</fieldset>
+
+						<fieldset class="form-group predefined">
+							<legend>Paramètres</legend>
+
+							<select name="latency">
+								<option value="500">vitesse lente</option>
+								<option value="250">vitesse moyenne</option>
+								<option value="100">vitesse rapide</option>
+							</select>
+							<button id="log">positions</button>
+							<button data-order="R000">repos</button>
+						</fieldset>
+
+						<fieldset>
+							<legend>Apprentissage</legend>
+							<button id="save_position">enregistrer</button>
+							<button id="forget_position">oublier</button>
+							<button id="replay_position">rejouer</button>
+							<button id="replay_always">répéter</button>
+							<div id="recorded_positions"></div>
+						</fieldset>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="text-muted">
+		<div class="container">
+			<p id="logos">
+				<img src="images/simplon.png" alt="Simplon.png">
+				<img src="images/artilect.jpg" alt="Artilect">
+				<img src="images/ern.png" alt="Ecole Région du Numérique">
+				<img src="images/iot-valley.png" alt="IOT Valley">
+			</p>
+			<p class="float-right">
+				<a href="#">Haut de page</a>
+			</p>
+			<p>Ce panel a été développé dans un cadre d'apprentissage, c'est un prototype !</p>
+			<p>Curieux au sujet de nos formations ? <a href="https://simplon.co/"> Visitez notre site</a> !</p>
+		</div>
+	</footer>
 </body>
+
 </html>

@@ -1,3 +1,10 @@
+.jumbotron {
+	margin-bottom: 0;
+}
+
+.album {
+	padding-top: 40px;
+}
 
 fieldset {
 	border: 1px darkGrey solid;
@@ -21,4 +28,13 @@ button {
 
 #recorded_positions span {
 	color: green;
+}
+
+footer img {
+	height: 80px;
+	margin: 50px 50px 20px 0;
+}
+
+footer .logos {
+	text-align: center;
 }

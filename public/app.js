@@ -83,6 +83,33 @@ $(document).ready(function()
 		})
 	});
 
+	var doRepeat;
+
+	$('#replay_always').on('click', function(){
+
+		if(doRepeat){
+			clearInterval(doRepeat);
+			$(this).html('répéter');
+			return;
+		}
+
+		var o = $.map($('#recorded_positions span'), function(el) {
+			return $(el).data('order');
+	    });
+
+		$('#replay_position').click();
+		
+		doRepeat = setInterval(function(){
+			$('#replay_position').click();
+		}, 2000*o.length);
+
+		$(this).html('stopper');
+
+	});
+
+
+	
+
 
 
 
@@ -113,6 +140,7 @@ $(document).ready(function()
 
 	function order( o )
 	{
+		console.log(o);
 		socket.emit('order', o);
 	}
 });
