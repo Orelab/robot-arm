@@ -6,9 +6,55 @@ const serv = require('http');
 const http = serv.Server(app);
 var io = require('socket.io')(http);
 
-var SerialPort = require('serialport');
-var port = new SerialPort('/dev/ttyUSB0');
 
+//-- Serial port
+
+const fs = require('fs');
+var SerialPort = require('serialport');
+
+var port = new SerialPort('/dev/ttyUSB1');
+//var port = new SerialPort('/dev/rfcomm0');
+
+/*
+
+// The following code is an unsuccessfull attempt to 
+// automatically discover the correct serial port...
+
+var devices = [
+	'/dev/ttyUSB0', '/dev/ttyUSB1', '/dev/ttyUSB2',
+	'/dev/ttyACM0', '/dev/ttyACM1', '/dev/ttyACM2',
+	'/dev/ttyACM3', '/dev/ttyACM4'
+];
+
+devices.forEach((dev) => {
+	try
+	{
+		if( fs.existsSync(dev) )
+		{
+			var d = 0;
+			var p = new SerialPort(dev);
+			p.on('data',function(err)
+			{
+				if( port )
+				{
+					p = undefined;
+				}
+				if( d++ > 10 )
+				{
+					port = p;
+					delete(p);
+					console.log(dev +  ' found');
+				}
+			});
+		}
+	}
+	catch(err)
+	{
+		console.error(err);
+	}
+});
+
+*/
 
 
 app.use(express.static('public'));
