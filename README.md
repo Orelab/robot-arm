@@ -120,6 +120,8 @@ shifted and unreadable.
 Bluetooth (HC-05 module + BT serial on Linux) :
 - https://www.instructables.com/id/How-to-Configure-HC-05-Bluetooth-Module-As-Master-/
 - https://avilpage.com/2017/10/bluetooth-communication-between-ubuntu-android.html
+- https://forum.ubuntu-fr.org/viewtopic.php?id=2024434#p21922713
+- https://www.instructables.com/id/How-to-Configure-HC-05-Bluetooth-Module-As-Master-/
 
 
  #### Improvements to come

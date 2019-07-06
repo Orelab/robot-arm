@@ -1,8 +1,7 @@
 #ifndef MOTOR_LIB_H__
 #define  MOTOR_LIB_H__
 
-#include <Servo.h>
-#include <Arduino.h>
+
 
 
 class Motor
