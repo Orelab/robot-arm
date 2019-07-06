@@ -1,24 +1,19 @@
-#include <Servo.h> 
+#include <Arduino.h>
+#include <SoftwareSerial.h>
+#include <Servo.h>
 #include "Motor.h"
 
 
-/*
+Motor m0(2);
+Motor m1(3);
+Motor m2(4);
+Motor m3(5);
+Motor m4(6);
+Motor m5(8);
 
-  Some precious readings :
-  - http://paulmurraycbr.github.io/ArduinoTheOOWay.html
-  - https://learn.adafruit.com/multi-tasking-the-arduino-part-1/a-classy-solution
-  - http://web.maths.unsw.edu.au/~lafaye/CCM/cpp/cppobjet.htm
-  - https://arduino.stackexchange.com/questions/1216
+//SoftwareSerial bluetooth(4,3); // RX, TX
 
-*/
-
-Motor m0(5);
-Motor m1(6);
-Motor m2(7);
-Motor m3(8);
-Motor m4(9);
-Motor m5(10);
-
+//String order = "";
 
 
 void setup()
@@ -35,6 +30,7 @@ void setup()
   m5.setLatency(400);
 
   Serial.begin(9600);
+  //bluetooth.begin(9600);
 } 
 
 
@@ -46,14 +42,25 @@ void loop()
   m3.update();
   m4.update();
   m5.update();
+
+  //-- SoftwareSerial (BT)
+/*
+  bluetooth.listen();
+  while( bluetooth.available()>0 )
+  {
+    order += bluetooth.read();
+  }
+  serialEvent();
+  order="";
+*/
 }
 
 
+//-- Serial
 
 void serialEvent()
 {
   String order = Serial.readString();
-
   Serial.println(order);
 
   for(int i=0 ; i<order.length() ; i+=4)
@@ -63,12 +70,12 @@ void serialEvent()
 
     Serial.println( key + '.' + value );
 
-    if(key =="A"){ m0.moveTo(value.toInt()); }
+    if(key =="A"){ m0.moveTo(value.toInt()); } // base
     if(key =="Q"){ m1.moveTo(value.toInt()); }
     if(key =="W"){ m2.moveTo(value.toInt()); }
     if(key =="E"){ m3.moveTo(value.toInt()); }
     if(key =="D"){ m4.moveTo(value.toInt()); }
-    if(key =="C"){ m5.moveTo(value.toInt()); }
+    if(key =="C"){ m5.moveTo(value.toInt()); } // hand
   
     if(key =="L")
     {
